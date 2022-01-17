@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-post',
@@ -8,15 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PostComponent implements OnInit { 
   
   @Input() post: any;
+  @Output() notify = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.post);
-  }
-
-  sendComment = () => {
-    alert("Enviando comentário");
+    //console.log(this.post);
   }
 
 }
