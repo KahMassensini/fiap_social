@@ -1,5 +1,5 @@
 <article>
-    <header>
+    <header [routerLink]="['/post-detail', {post: post.id}]">
       <img src="/assets/profile.png" />
       <div>
         <p>por {{post.Student.name}}</p>
