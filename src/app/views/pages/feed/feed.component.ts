@@ -15,7 +15,7 @@ export class FeedComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.postService.getPosts();
+    this.posts = this.postService.getPosts();
   }
 
   saveComment(){
