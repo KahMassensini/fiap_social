@@ -8,7 +8,7 @@ import { PostService } from "../../../services/post.service";
 })
 export class FeedComponent implements OnInit {
 
-  posts = [ ];
+  posts: any;
 
   constructor(
     private postService: PostService
