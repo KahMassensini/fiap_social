@@ -62,7 +62,7 @@ export class PostService {
     return this.posts;
   }
 
-  getPostById(postId: number){
+  getPostById(postId: number | null){
     return this.posts.find((post: any) => post.id === postId);
   }
 }

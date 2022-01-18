@@ -1,1 +1,25 @@
-<p>{{post}}</p>
+<article>
+    <header [routerLink]="['/post-detail', {postId: post.id}]">
+      <img src="/assets/profile.png" />
+      <div>
+        <p>por {{post.Student.name}}</p>
+        <span>em [data]</span>
+      </div>
+    </header>
+    <main>
+      <div>
+        <h2>{{post.title}}</h2> <!--{{}} se chama interpolação, chama a classe na view-->
+        <p>{{post.description}}</p>
+      </div>
+      <img *ngIf="post.image" [src]="post.image" alt="imagem do post" />
+      <footer>
+        <p *ngFor="let category of post.Categories">{{category.description}}</p>
+      </footer>
+    </main>
+    <footer>
+      <h3>
+        Comentários
+      </h3>
+      <app-comment *ngFor="let comment of post.Answers" [comment]="comment"></app-comment>
+    </footer>
+  </article>

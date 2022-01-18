@@ -21,5 +21,4 @@ export class FeedComponent implements OnInit {
   saveComment(){
     alert("Comentário esta sendo salvo!");
   }
-
 }
