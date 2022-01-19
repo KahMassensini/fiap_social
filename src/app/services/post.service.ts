@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root',
@@ -57,13 +58,13 @@ export class PostService {
     },
   ];
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private loginService: LoginService) {}
 
   getPosts() {
+    const user = this.loginService.getLoggedUser();
     return this.httpClient.get('https://fiap-social-api.herokuapp.com/feed', {
       headers: {
-        authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdHVkZW50SWQiOjEsInN0dWRlbnROYW1lIjoiUmFmYWVsIiwiaWF0IjoxNjQyNTI5ODA0LCJleHAiOjE2NDI1MzM0MDR9.esASYDGdKzv3ATD1DCgN0oqGU4GI78oXqlz_aWkUU8o',
+        authorization: `Bearer ${user?.token}`,
       },
     });
   }
